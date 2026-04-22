@@ -1,28 +1,101 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050510;
+}
+
 body {
-    background-color: #111;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: white;
     font-family: 'Courier New', Courier, monospace;
 }
 
-#game-container {
+#game-wrapper {
     position: relative;
-    border: 4px solid #444;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-canvas {
-    background-color: #0000ff; /* Classic Blue Sky */
+#canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
     display: block;
+    width: min(100vw, calc(100vh * 5 / 3));
+    height: min(100vh, calc(100vw * 3 / 5));
+    background: #0a0e1a;
 }
 
-#ui {
+#mobile-controls {
+    display: none;
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    text-shadow: 2px 2px black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    padding: 8px 16px;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 10;
+}
+
+#mobile-controls button {
+    pointer-events: all;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    cursor: pointer;
+    transition: background 0.08s;
+}
+
+#mobile-controls button:active,
+#mobile-controls button.pressed {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+#btn-left, #btn-right {
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
+}
+
+#btn-jump {
+    width: 88px;
+    height: 88px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+@media (pointer: coarse), (max-width: 768px), (hover: none) {
+    #mobile-controls {
+        display: flex;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
