@@ -1,0 +1,28 @@
+body {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#game-container {
+    position: relative;
+    border: 4px solid #444;
+}
+
+canvas {
+    background-color: #0000ff; /* Classic Blue Sky */
+    display: block;
+}
+
+#ui {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+}
