@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trap Adventure 2 Remake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Trap Adventure 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
-        <canvas id="gameCanvas" width="800" height="400"></canvas>
-        <div id="ui">
-            <span>LIVES: <span id="lives-count">20</span></span>
+    <div id="game-wrapper">
+        <canvas id="canvas" width="800" height="480"></canvas>
+        <div id="mobile-controls">
+            <button id="btn-left" aria-label="Move Left">&#9664;</button>
+            <button id="btn-right" aria-label="Move Right">&#9654;</button>
+            <button id="btn-jump" aria-label="Jump">JUMP</button>
         </div>
     </div>
     <script src="game.js"></script>
